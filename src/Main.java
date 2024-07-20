@@ -1,4 +1,5 @@
 import DictionariesAndHashmaps.TwoStrings;
+import GreedyAlgorithms.AbsoluteMinimumDifference;
 import Sorting.MarkAndToys;
 import StringManipulation.MakingAnagrams;
 
@@ -9,7 +10,9 @@ public class Main {
         //TwoStrings.runFunction();
         //MarkAndToys.runFunction();
 
-        MakingAnagrams.runAlgorithm();
+        //MakingAnagrams.runAlgorithm();
+
+        AbsoluteMinimumDifference.runAbsoluteMinimumDifference();
     }
 
 }
