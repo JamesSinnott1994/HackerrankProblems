@@ -1,6 +1,7 @@
 package GreedyAlgorithms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AbsoluteMinimumDifference {
@@ -53,6 +54,31 @@ public class AbsoluteMinimumDifference {
         }
 
         return minimumNumber;
+
+    }
+
+    public static int optimizedMinimumAbsoluteDifference(List<Integer> arr) {
+
+        /*
+        Time complexity: Logarithmic complexity, O(n log n)
+         */
+
+        // Sort so then we will only have to compare the values that are closest to each other
+        // which is where the smallest differences are
+        // i.e. don't need to compare different combinations of pairs
+        Collections.sort(arr);
+        int minDiff = Math.abs(arr.get(0) - arr.get(1)); // Gets the initial value
+
+        for (int i = 2; i < arr.size(); i++) {
+
+            // Go through each pair
+            if (Math.abs(arr.get(i-1) - arr.get(i)) < minDiff) {
+                minDiff = Math.abs(arr.get(i-1)-arr.get(i));
+            }
+
+        }
+
+        return minDiff;
 
     }
 
