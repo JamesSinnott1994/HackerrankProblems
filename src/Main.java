@@ -1,7 +1,9 @@
 import DictionariesAndHashmaps.TwoStrings;
 import GreedyAlgorithms.AbsoluteMinimumDifference;
 import GreedyAlgorithms.Luck;
+import RecursionAndBacktracking.Fibonacci;
 import Sorting.MarkAndToys;
+import Sorting.MinimumSwaps;
 import StringManipulation.MakingAnagrams;
 
 public class Main {
@@ -15,7 +17,11 @@ public class Main {
 
         // AbsoluteMinimumDifference.runAbsoluteMinimumDifference();
 
-        Luck.runLuckBalance();
+        //Luck.runLuckBalance();
+
+        //Fibonacci.runFibonacciChallenge();
+
+        MinimumSwaps.runMinimumSwap();
     }
 
 }
