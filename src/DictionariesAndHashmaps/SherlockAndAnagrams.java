@@ -25,11 +25,13 @@ public class SherlockAndAnagrams {
                 Arrays.sort(c);
                 String k = new String(c);
 
-                if (hashMap.containsKey(k)) {
-                    hashMap.put(k, hashMap.get(k)+1);
-                } else {
-                    hashMap.put(k, 1);
-                }
+//                if (hashMap.containsKey(k)) {
+//                    hashMap.put(k, hashMap.get(k)+1);
+//                } else {
+//                    hashMap.put(k, 1);
+//                }
+
+                hashMap.put(k, hashMap.getOrDefault(k, 0) + 1);
             }
         }
 
@@ -38,7 +40,7 @@ public class SherlockAndAnagrams {
         // Count pairs
         for (String k : hashMap.keySet()) {
             int v = hashMap.get(k); // Get all string frequencies
-            noOfPairs += (v * (v - 1)) / 2; // Combination formula, choose 2 to get no. of pairs out of 'v' items
+            noOfPairs += (v * (v - 1)) / 2; // Combination formula, choose 2 to get no. of pairs out of 'v' items/substrings of type k
         }
 
         return noOfPairs;
