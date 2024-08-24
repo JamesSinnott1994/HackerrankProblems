@@ -1,11 +1,15 @@
 package MaxProductOfWordLengths;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class MaxProduct {
 
     public static void main(String[] args) {
 
-        String[] words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
-        int result = Result.maxProduct(words);
+        String[] words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef", "ylkgh"};
+
+        int result = Result.maxProduct(words); // Expected: 30
         System.out.println("result : " + result);
 
     }
@@ -22,22 +26,43 @@ class Result {
      */
 
     public static int maxProduct(String[] words) {
-        int maxProduct = 0;
 
+        // Sort list of strings in descending order so that the largers strings appear first
+        // This will save a tremendous amount of iterations as the first product that we get IS the
+        // maximum product, therefore we can break out of the list once we have this
+
+        // Sort the array in descending order based on string length
+        // OPTIMIZATION 2!
+        Arrays.sort(words, new Comparator<String>() {
+            @Override
+            public int compare(String word1, String word2) {
+                return Integer.compare(word2.length(), word1.length());
+            }
+        });
+
+        // Iterate through list to get maxProduct
+        int maxProduct = 0;
+        boolean maxProductFound = false;
         for (int i = 0; i < words.length; i++) {
 
-            for (int j = i+1; j < words.length; j++) {
+            if (!maxProductFound) {
+                for (int j = i+1; j < words.length; j++) {
 
-                int currentProduct = 0;
+                    int currentProduct = 0;
 
-                // Check that two words don't contain same letters
-                if (lettersDontMatch(words[i], words[j])) {
-                    currentProduct = words[i].length() * words[j].length();
+                    // Check that two words don't contain same letters
+                    if (lettersDontMatch(words[i], words[j])) {
+                        currentProduct = words[i].length() * words[j].length();
+                    }
+
+                    if (currentProduct > maxProduct) {
+                        maxProduct = currentProduct;
+                        maxProductFound = true;
+                        break;
+                    }
                 }
-
-                if (currentProduct > maxProduct) {
-                    maxProduct = currentProduct;
-                }
+            } else {
+                break;
             }
         }
         return maxProduct;
