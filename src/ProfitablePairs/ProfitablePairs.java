@@ -1,6 +1,7 @@
 package ProfitablePairs;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProfitablePairs {
@@ -47,18 +48,25 @@ public class ProfitablePairs {
         */
         long profitablePairs = 0L;
 
+        List<Integer> netProfit = new ArrayList<>();
         for (int i = 0; i < profit.size(); i++) {
-            for (int j = i+1; j < profit.size(); j++) {
-
-                int totalNetProfit = 0;
-                totalNetProfit = (profit.get(i) - implementationCost.get(i)) + (profit.get(j) - implementationCost.get(j));
-
-                if (totalNetProfit > 0) {
-                    profitablePairs++;
-                }
-
-            }
+            netProfit.add(profit.get(i) - implementationCost.get(i));
         }
+        Collections.sort(netProfit);
+
+        // Two-pointer approach to count pairs
+        int n = netProfit.size();
+        int j = n - 1;
+
+        for (int i = 0; i < n; i++) {
+            // Find the rightmost index where netProfit[i] + netProfit[j] > 0
+            while (j > i && netProfit.get(i) + netProfit.get(j) > 0) {
+                j--;
+            }
+            // Count valid pairs
+            profitablePairs += (n - 1 - j);
+        }
+
         return profitablePairs;
     }
 
