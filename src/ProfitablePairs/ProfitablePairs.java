@@ -60,6 +60,8 @@ public class ProfitablePairs {
 
         for (int i = 0; i < n; i++) {
             // Find the rightmost index where netProfit[i] + netProfit[j] > 0
+            // After sorting, use two pointers or binary search to efficiently count the number of pairs that
+            // satisfy the condition.
             while (j > i && netProfit.get(i) + netProfit.get(j) > 0) {
                 j--;
             }
