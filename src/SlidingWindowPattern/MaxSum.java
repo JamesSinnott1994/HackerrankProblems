@@ -4,6 +4,8 @@ public class MaxSum {
 
     public static void main(String[] args) {
 
+        // Time Complexity of O(n)
+
         int[] arr = {2, 6, 9, 2, 1, 8, 5, 6, 3};
         int num = 3;
 
