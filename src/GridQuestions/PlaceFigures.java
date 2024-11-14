@@ -16,15 +16,29 @@ public class PlaceFigures {
     // Define shapes for each figure as 2D arrays
     private static final int[][][] FIGURES = {
             // 'A' Shape
-            {{1, 1, 1, 1}},
+            {
+                {1}
+            },
             // 'B' Shape
-            {{1, 1}, {1, 1}},
+            {
+                {1, 1, 1},
+            },
             // 'C' Shape
-            {{1, 0}, {1, 0}, {1, 1}},
+            {
+                {1, 1},
+                {1, 1}
+            },
             // 'D' Shape
-            {{0, 1}, {1, 1}, {0, 1}},
+            {
+                {1, 0},
+                {1, 1},
+                {1, 0}
+            },
             // 'E' Shape
-            {{0, 1, 0}, {1, 1, 1}}
+            {
+                {0, 1, 0},
+                {1, 1, 1}
+            }
     };
 
     public static int[][] solution(int n, int m, char[] figures) {

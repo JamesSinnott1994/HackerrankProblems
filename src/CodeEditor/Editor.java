@@ -4,52 +4,33 @@ public class Editor {
 
     public static void main(String[] args) {
 
-        int[] numbers = {3,3,5,2,3};
+        String word = "aabba"; // Output should be 4 operations according to Hackerrank
+        System.out.println(getMaximumOperations(word));
 
-        problem(numbers);
+        // aaaba - 1 operations
+        // aaaaa - 2 operations
     }
 
-    public static int problem(int[] numbers) {
+    public static long getMaximumOperations(String s) {
 
-        boolean arrayComplete = false;
-        int finalResult = 0;
+        // Return the number of operations
+        int maxOperations = 0;
 
-        while (!arrayComplete) {
+        // Have character array in order for us to perform replacements
+        char[] chars = s.toCharArray();
 
-            // Step 1: Get index
-            int index = -1;
-            int x = -1;
+        // Loop through string to choose characters
+        for(int i = 1; i <= s.length()-2; i++) {
 
-            for (int i = 0; i < numbers.length; i++) {
-                if (numbers[i] > 0) {
-                    index = i;
-                    x = numbers[i];
-                    break;
-                }
+            // Check if character criteria is met
+            if ( chars[i-1] == chars[i] && chars[i] != chars[i+1] ) {
+
+                // Replace characters
+                chars[i+1] = chars[i-1];
+                maxOperations+=1;
             }
-
-            // No such element, finish algorithm
-            if (index == -1) {
-                arrayComplete = true;
-                return finalResult;
-            }
-
-            // Step 2: Subtract x
-            for (int i = index; i < numbers.length; i++) {
-                if (numbers[i] < x) {
-                    break;
-                } else {
-                    numbers[i] = numbers[i] - x;
-                }
-            }
-
-            // Step 3: Add x to final result
-            System.out.println("x: " + x);
-            finalResult += x;
 
         }
-
-        return finalResult;
-
+        return maxOperations;
     }
 }
