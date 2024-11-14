@@ -14,14 +14,22 @@ public class BubbleSortAlgorithm {
     }
 
     private static int[] bubbleSort(int[] arr) {
+
+        boolean noSwaps;
+
         for (int i = arr.length; i > 0; i--) {
+            noSwaps = true;
             for (int j = 0; j < i - 1; j++) {
                 if (arr[j] > arr[j+1]) {
                     // Swap!
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
+                    noSwaps = false;
                 }
+            }
+            if(noSwaps) {
+                break;
             }
         }
         return arr;
