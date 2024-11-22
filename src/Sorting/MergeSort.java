@@ -7,19 +7,30 @@ public class MergeSort {
 
     public static void main(String[] args) {
 
-        List<Integer> arr1 = new ArrayList<>();
-        arr1.add(1);
-        arr1.add(10);
-        arr1.add(50);
+        // Merge Arrays Implementation
+//        List<Integer> arr1 = new ArrayList<>();
+//        arr1.add(1);
+//        arr1.add(10);
+//        arr1.add(50);
+//
+//        List<Integer> arr2 = new ArrayList<>();
+//        arr2.add(2);
+//        arr2.add(14);
+//        arr2.add(99);
+//        arr2.add(100);
+//
+//        List<Integer> results = merge(arr1, arr2);
+//        boolean finished = true;
 
-        List<Integer> arr2 = new ArrayList<>();
-        arr2.add(2);
-        arr2.add(14);
-        arr2.add(99);
-        arr2.add(100);
+        // Merge Sort Implementation
+        List<Integer> arr = new ArrayList<>();
+        arr.add(10);
+        arr.add(24);
+        arr.add(76);
+        arr.add(73);
 
-        List<Integer> results = merge(arr1, arr2);
-        boolean finished = true;
+        List<Integer> sortedList = mergeSort(arr);
+        int i = 0;
     }
 
     private static List<Integer> merge(List<Integer> arr1, List<Integer> arr2) {
@@ -49,5 +60,13 @@ public class MergeSort {
             j++;
         }
         return results;
+    }
+
+    private static List<Integer> mergeSort(List<Integer> arr) {
+        if (arr.size() <= 1) return arr;
+        int mid = arr.size() / 2;
+        List<Integer> left = mergeSort( new ArrayList<>(arr.subList(0, mid)) );
+        List<Integer> right = mergeSort( new ArrayList<>(arr.subList(mid, arr.size())) );
+        return merge(left, right);
     }
 }
