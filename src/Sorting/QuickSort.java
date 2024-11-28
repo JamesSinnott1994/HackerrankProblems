@@ -4,9 +4,20 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {4, 8, 2, 1, 5, 7, 6, 3};
-        int pivotIndex = pivot(arr, 0, arr.length-1);
-        System.out.println(pivotIndex);
+        int[] arr = {4, 8, 2, 1, 5, 7, 6, 3, 9};
+        int[] returnedArray = quickSort(arr, 0, arr.length-1);
+        System.out.println(returnedArray);
+    }
+
+    private static int[] quickSort(int[] arr, int left, int right) {
+        if(left < right){
+            int pivotIndex = pivot(arr, left, right); //3
+            //left
+            quickSort(arr,left,pivotIndex-1);
+            //right
+            quickSort(arr,pivotIndex+1,right);
+        }
+        return arr;
     }
 
     private static int pivot(int[] arr, int start, int end) {
