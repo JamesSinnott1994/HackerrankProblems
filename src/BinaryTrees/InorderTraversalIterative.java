@@ -1,7 +1,5 @@
 package BinaryTrees;
 
-import com.sun.source.tree.Tree;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -20,7 +18,7 @@ class TreeNode {
     }
 }
 
-public class InorderTraversal {
+public class InorderTraversalIterative {
 
     /*
                     (1)
@@ -40,10 +38,10 @@ public class InorderTraversal {
         TreeNode three = new TreeNode(3, null, eight);
         TreeNode root = new TreeNode(1, two, three);
 
-        List<Integer> inorderNodesTraversed = inorderTraversalIterative(root);
+        List<Integer> inorderNodesTraversed = inorderTraversal(root);
     }
 
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public static List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode curr = root;
