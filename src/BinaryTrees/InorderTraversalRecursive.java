@@ -3,20 +3,6 @@ package BinaryTrees;
 import java.util.ArrayList;
 import java.util.List;
 
-// Definition for a binary tree node.
-class TreeNode2 {
-    int val;
-    TreeNode2 left;
-    TreeNode2 right;
-    TreeNode2() {}
-    TreeNode2(int val) { this.val = val; }
-    TreeNode2(int val, TreeNode2 left, TreeNode2 right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
 public class InorderTraversalRecursive {
 
     public static void main(String[] args) {
