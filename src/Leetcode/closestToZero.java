@@ -42,4 +42,23 @@ public class closestToZero {
         return closest;
     }
 
+    public static int closestToZeroTest2(int[] numbers) {
+
+        if (numbers == null || numbers.length == 0) {
+            return 0; // or throw an exception
+        }
+
+        int closest = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            int current = numbers[i];
+            if (Math.abs(current) < Math.abs(closest) ||
+                    (Math.abs(current) == Math.abs(closest) && current > closest)) {
+                closest = current;
+            }
+        }
+
+        return closest;
+    }
+
 }
