@@ -27,9 +27,7 @@ public class RichestCustomerWealth {
             for (int bank : banks) {
                 sumOfWealth += bank;
             }
-            if (sumOfWealth > maxWealth) {
-                maxWealth = sumOfWealth;
-            }
+            maxWealth = Math.max(maxWealth, sumOfWealth);
         }
         return maxWealth;
     }
