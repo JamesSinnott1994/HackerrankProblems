@@ -11,7 +11,7 @@ public class MergeTwo2DArrays {
 
         int[][] nums1 = { {1,2}, {2,3}, {4,5} };
         int[][] nums2 = { {1,4}, {3,2}, {4,1} };
-        System.out.println("Values are : " + Arrays.deepToString(mergeArrays(nums1, nums2)));
+        System.out.println("Values are : " + Arrays.deepToString(mergeArraysOptimized(nums1, nums2)));
     }
 
     public static int[][] mergeArrays(int[][] nums1, int[][] nums2) {
@@ -60,7 +60,7 @@ public class MergeTwo2DArrays {
 
     }
 
-    public int[][] mergeArraysOptimized(int[][] nums1, int[][] nums2) {
+    public static int[][] mergeArraysOptimized(int[][] nums1, int[][] nums2) {
         // Initialize pointers for both arrays
         int i = 0, j = 0;
         // List to store our merged results

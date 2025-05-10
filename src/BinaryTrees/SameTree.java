@@ -1,7 +1,5 @@
 package BinaryTrees;
 
-import java.util.Stack;
-
 public class SameTree {
 
     public static void main(String[] args) {
