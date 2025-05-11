@@ -17,28 +17,14 @@ public class ParkingSystem {
     else park the car in that size space and return true.
      */
 
-    int bigSpaces;
-    int mediumSpaces;
-    int smallSpaces;
+    int[] count;
 
     public ParkingSystem(int big, int medium, int small) {
-        this.bigSpaces = big;
-        this.mediumSpaces = medium;
-        this.smallSpaces = small;
+        count = new int[]{big, medium, small};
     }
 
     public boolean addCar(int carType) {
-        if (carType == 1 && bigSpaces > 0) {
-            bigSpaces--;
-            return true;
-        } else if (carType == 2 && mediumSpaces > 0) {
-            mediumSpaces--;
-            return true;
-        } else if (carType == 3 && smallSpaces > 0) {
-            smallSpaces--;
-            return true;
-        }
-        return false;
+        return count[carType - 1]-- > 0;
     }
 
 }
