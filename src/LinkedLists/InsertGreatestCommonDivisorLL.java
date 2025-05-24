@@ -35,12 +35,21 @@ public class InsertGreatestCommonDivisorLL {
         ListNode current = head;
         while (current.next != null) {
             ListNode oldNextNode = current.next;
-            int divisorVal = getDivisor(current.val, oldNextNode.val);
+            int divisorVal = getDivisorEuclidean(current.val, oldNextNode.val);
             ListNode divisorNode = new ListNode(divisorVal, oldNextNode);
             current.next = divisorNode;
             current = oldNextNode;
         }
         return head;
+    }
+
+    public static int getDivisorEuclidean(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
     }
 
     public static int getDivisor(int node1, int node2) {
