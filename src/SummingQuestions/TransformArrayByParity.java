@@ -4,14 +4,23 @@ import java.util.Arrays;
 
 public class TransformArrayByParity {
     public static int[] transformArray(int[] nums) {
-        // Iterate through array
-            // If number is even, replace with 0, else 1
-        // Sort the array
+        int zeroCount = 0;
+
+        // First pass: transform and count 0s
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] % 2 == 0) { nums[i] = 0; }
-            else {  nums[i] = 1; }
+            if (nums[i] % 2 == 0) {
+                nums[i] = 0;
+                zeroCount++;
+            } else {
+                nums[i] = 1;
+            }
         }
-        Arrays.sort(nums);
+
+        // Second pass: overwrite with sorted values
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = (i < zeroCount) ? 0 : 1;
+        }
+
         return nums;
     }
 }
