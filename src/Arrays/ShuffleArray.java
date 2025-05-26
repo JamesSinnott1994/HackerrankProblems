@@ -1,5 +1,7 @@
 package Arrays;
 
+import java.util.Queue;
+
 public class ShuffleArray {
     public static int[] shuffle(int[] nums, int n) {
         // Create new array of size n*2
